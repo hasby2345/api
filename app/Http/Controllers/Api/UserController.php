@@ -92,8 +92,8 @@ class UserController extends Controller
     {
         $validator = Validator::make($request->all(),[
             'name'=>'required',
-            'email'=>'required|unique:users',
-            'password'=>'required|min:8',
+            'email'=>'required',
+            // 'password'=>'required|min:8',
         ]);
 
         if ($validator->fails()) {
@@ -108,7 +108,6 @@ class UserController extends Controller
             $user = User::findOrFail($id);
             $user->name = $request->name;
             $user->email = $request->email;
-            $user->password = bcrypt($request->email);
             $user->save();
             return response()->json([
                 'success' => true,
