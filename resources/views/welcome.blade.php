@@ -185,7 +185,7 @@
                 <div class="card-body">
                     Selamat Datang @guest
                         @else
-                        <b>{{Auth::user()->user}}</b>
+                        <b>{{Auth::user()->name}}</b>
                     @endguest
                 </div>
             </div>
